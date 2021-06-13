@@ -1,4 +1,4 @@
-package domain;
+package com.src.domain;
 
 public class Country {
 
