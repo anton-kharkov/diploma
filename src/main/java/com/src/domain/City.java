@@ -1,16 +1,21 @@
 package com.src.domain;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
 public class City {
 
     private int id;
     private String name;
     private String country;
     private boolean capital;
-    private long population;
+    private int population;
 
-    public void City(){}
+    public City(){}
 
-    public void City(String name, String country, boolean capital, long population){
+    public City(int id, String name, String country, boolean capital, int population){
         name = this.name;
         country = this.country;
         capital = this.capital;
@@ -41,11 +46,11 @@ public class City {
         this.capital = capital;
     }
 
-    public long getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public void setPopulation(long population) {
+    public void setPopulation(int population) {
         this.population = population;
     }
 

@@ -1,20 +1,34 @@
 package com.src.domain;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
 public class Country {
 
     private int id;
     private String name;
-    private long population;
+    private int population;
     private String continent;
-    private long gdp;
+    private int gdp;
 
-    public void Country(){}
+    public Country(){}
 
-    public void Country(String name, long population, String continent, long gdp){
+    public Country(int id, String name, int population, String continent, int gdp){
+        id = this.id;
         name = this.name;
         population = this.population;
         continent = this.continent;
         gdp = this.gdp;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -25,11 +39,11 @@ public class Country {
         this.name = name;
     }
 
-    public long getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public void setPopulation(long population) {
+    public void setPopulation(int population) {
         this.population = population;
     }
 
@@ -41,11 +55,11 @@ public class Country {
         this.continent = continent;
     }
 
-    public long getGdp() {
+    public int getGdp() {
         return gdp;
     }
 
-    public void setGdp(long gdp) {
+    public void setGdp(int gdp) {
         this.gdp = gdp;
     }
 
