@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public interface CountryDao {
+public interface CountryDao{
 
     void addCountry(Country country) throws SQLException;
 

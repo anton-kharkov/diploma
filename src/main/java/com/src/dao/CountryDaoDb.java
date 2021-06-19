@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public class CountryDaoDb implements CountryDao{
 
+    private String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
     public static final String URL = "jdbc:mysql://localhost:3306";
     public static final String USERNAME = "root";
     public static final String PASSWORD = "11";
@@ -33,7 +34,6 @@ public class CountryDaoDb implements CountryDao{
     private ResultSet resultSet = null;
     private PreparedStatement preparedStatement = null;
 
-    @Override
     public void addCountry(Country country) throws SQLException {
 
         driverInstance();
@@ -56,7 +56,6 @@ public class CountryDaoDb implements CountryDao{
         }
     }
 
-    @Override
     public List<Country> findAllCountry() {
         ArrayList<Country> countryArrayList = new ArrayList<>();
 
@@ -87,7 +86,6 @@ public class CountryDaoDb implements CountryDao{
         return countryArrayList;
     }
 
-    @Override
     public void deleteById(int id) {
         driverInstance();
 
@@ -107,7 +105,6 @@ public class CountryDaoDb implements CountryDao{
         }
     }
 
-    @Override
     public List<City> getAllCityByCountryName(String country) {
 
         List<City> cityList = new ArrayList<>();
@@ -140,7 +137,6 @@ public class CountryDaoDb implements CountryDao{
         return cityList;
     }
 
-    @Override
     public City getCapitalByCountryName(String country) {
 
         City city = null;
@@ -172,7 +168,7 @@ public class CountryDaoDb implements CountryDao{
 
     private void driverInstance() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            Class.forName(MYSQL_DRIVER).getDeclaredConstructor().newInstance();
         } catch (InstantiationException | InvocationTargetException | IllegalAccessException
                 | NoSuchMethodException | ClassNotFoundException e) {
             e.printStackTrace();

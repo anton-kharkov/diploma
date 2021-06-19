@@ -2,15 +2,17 @@ package com.src.dao;
 
 import com.src.domain.City;
 import com.src.domain.Human;
+import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Repository
 public class CityDaoDb implements CityDao{
 
+    private String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
     public static final String URL = "jdbc:mysql://localhost:3306/diploma";
     public static final String USERNAME = "root";
     public static final String PASSWORD = "11";
@@ -141,7 +143,7 @@ public class CityDaoDb implements CityDao{
 
     private void driverInstance() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            Class.forName(MYSQL_DRIVER).getDeclaredConstructor().newInstance();
         } catch (InstantiationException | InvocationTargetException | IllegalAccessException
                 | NoSuchMethodException | ClassNotFoundException e) {
             e.printStackTrace();
